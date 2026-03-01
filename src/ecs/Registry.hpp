@@ -4,6 +4,7 @@
 #include <unordered_map>
 #include <memory>
 #include <typeindex>
+#include <iostream>
 
 #include "Entity.hpp"
 
@@ -67,19 +68,28 @@ class ComponentStorage : public IComponentStorage {
 class Registry {
     public:
         Entity create() {
-            if (!registeredEntities.empty()) {
-                Entity entity = registeredEntities.back();
-                registeredEntities.pop_back();
+            if (!freeList.empty()) {
+                Entity entity = freeList.back();
+                freeList.pop_back();
                 return entity;
             }
             return nextEntity++;
         }
 
         void destroy(Entity entity){
-            registeredEntities.push_back(entity);
+            freeList.push_back(entity);
+        }
+
+        void printRegistry() {
+            std::cout << "Available entities: ";
+            for (const auto& entity : freeList) {
+                std::cout << entity << " ";
+            }
+            std::cout << std::endl;
         }
     
     private:
         Entity nextEntity = 0;
-        std::vector<Entity> registeredEntities;
+        //freeList should be a linked list, just using a vector for now.
+        std::vector<Entity> freeList; 
 };
