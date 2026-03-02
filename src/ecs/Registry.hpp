@@ -102,6 +102,7 @@ class Registry {
             auto& storageA = getStorage<A>();
             auto& storageB = getStorage<B>();
 
+            // Loop through every entity that has A. If it also has B, call the func.
             for (auto& [entity, compA] : storageA.getEntities()) {
                 if (storageB.has(entity)) {
                     func(entity, compA, storageB.get(entity));
