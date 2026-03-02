@@ -5,6 +5,8 @@
 #include <memory>
 #include <typeindex>
 #include <iostream>
+#include <functional>
+#include <cstdint>
 
 #include "Entity.hpp"
 
@@ -80,7 +82,35 @@ class Registry {
             freeList.push_back(entity);
         }
 
+        template<typename T>
+        void addComponent(Entity entity, const T& component) {
+            getStorage<T>().add(entity, component);
+        }
+
+        template<typename T>
+        T& getComponent(Entity entity) {
+            return getStorage<T>().get(entity);
+        }
+
+        template<typename T>
+        bool hasComponent(Entity entity) {
+            return getStorage<T>().has(entity);
+        }
+
+        template<typename A, typename B>
+        void view(std::function<void(Entity, A&, B&)> func) {
+            auto& storageA = getStorage<A>();
+            auto& storageB = getStorage<B>();
+
+            for (auto& [entity, compA] : storageA.getEntities()) {
+                if (storageB.has(entity)) {
+                    func(entity, compA, storageB.get(entity));
+                }
+            }
+        }
+
         void printRegistry() {
+            // This is just for debugging, it prints the available entities in the free list
             std::cout << "Available entities: ";
             for (const auto& entity : freeList) {
                 std::cout << entity << " ";
@@ -92,4 +122,16 @@ class Registry {
         Entity nextEntity = 0;
         //freeList should be a linked list, just using a vector for now.
         std::vector<Entity> freeList; 
+
+        std::unordered_map<std::type_index, std::unique_ptr<IComponentStorage>> componentStorages;
+
+        template<typename T>
+        ComponentStorage<T>& getStorage() {
+            std::type_index type = std::type_index(typeid(T));
+
+            if (!componentStorages.count(type)) {
+                componentStorages[type] = std::make_unique<ComponentStorage<T>>();
+            }
+            return *static_cast<ComponentStorage<T>*>(componentStorages[type].get());
+        }
 };
