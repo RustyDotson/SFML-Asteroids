@@ -1,9 +1,5 @@
 #include <SFML/Graphics.hpp>
 
-struct Position {
-    float x, y;
-};
-
 struct Velocity {
     float vx, vy;
 };

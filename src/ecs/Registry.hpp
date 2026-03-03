@@ -110,6 +110,16 @@ class Registry {
             }
         }
 
+        template<typename A>
+        void view(std::function<void(Entity, A&)> func) {
+            auto& storageA = getStorage<A>();
+            
+            // Loop through every entity that has A. If it also has B, call the func.
+            for (auto& [entity, compA] : storageA.getEntities()) {
+                    func(entity, compA, storageA.get(entity));
+            }
+        }
+
         void printRegistry() {
             // This is just for debugging, it prints the available entities in the free list
             std::cout << "Available entities: ";
