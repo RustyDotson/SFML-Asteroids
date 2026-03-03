@@ -39,10 +39,10 @@ int main(){
         registry.ForEach<Input> (
             [&] (Entity entity, Input& input) {
                 // This is just for testing, it will make the entity move in a circle
-                input.up = sf::Keyboard::isKeyPressed(sf::Keyboard::W);
-                input.down = sf::Keyboard::isKeyPressed(sf::Keyboard::S);
-                input.left = sf::Keyboard::isKeyPressed(sf::Keyboard::A);
-                input.right = sf::Keyboard::isKeyPressed(sf::Keyboard::D);
+                input.up = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W);
+                input.down = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S);
+                input.left = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A);
+                input.right = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D);
             }
         );
 

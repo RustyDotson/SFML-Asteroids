@@ -45,7 +45,7 @@ void inputSystem(Registry& registry) {
     );
 }
 
-void renderSystem(Registry& registry, sf::Window& window){
+void renderSystem(Registry& registry, sf::RenderWindow& window){
     registry.ForEach<Sprite>(
         [&] (Entity entity, Sprite& sprite) {
             window.draw(sprite.shape);
