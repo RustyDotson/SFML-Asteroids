@@ -15,7 +15,7 @@ While Asteroids isn't necessarily a large scale game, it is possible to create a
 In order to play the game, build by using cmake in the root directory of the project. If you don't
 have cmake, please install it at https://cmake.org/download/ OR if you use Visual Studio Code, it would be easier to just install the cmake package located on the extensions page. installing cmake via the downloads on the website may require some configuration beforehand.
 
-After you have cmake setup, while in the project directory, use the command `cmake -B build` (even if the folder `build` does not exist, cmake will automatically create this folder from the command. `cmake -B build` essentially lets cmake generate all the necessary build files inside a folder labeled `build` in order to compile the program). Then, use the command `cmake --build build` in the root directory to actually compile the program. The output program (depending on the OS) should be located somewhere like: build/bin/main.
+After you have cmake setup, while in the project directory, use the command `cmake -B build` (even if the folder `build` does not exist, cmake will automatically create this folder from the command. `cmake -B build` essentially lets cmake generate all the necessary build files inside a folder labeled `build` in order to compile the program). Then, use the command `cmake --build build` in the root directory to actually compile the program. The output program (depending on the OS) should be located somewhere like: `build/bin/Debug/main`.
 
 You shouldn't need to download any other dependencies, as cmake should install everything for SFML on its own.
 
