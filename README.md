@@ -12,7 +12,7 @@ This Asteroids project was built utilizing a custom engine with an [Entity Compo
 While Asteroids isn't necessarily a large scale game, it is possible to create a type of Asteroids where thousands of collidable entities do all appear at once, which is what this version has. Each round, the number of asteroids increases by n*2+1 (subject to change), quickly increasing the number of asteroids that spawn. 4 mini asteroids come from 1 large asteroid, so you could imagine the number of collidable entities that would be present within 10 rounds. However, it is nearly impossible to get to that high of a round until I implement player power ups.
 
 ### Setup
-I noticed that I may have missed 1 or 2 cmake steps in the instructions below. If you would like to easily experience the game, please download the game's .exe file in the releases section of this repo.
+I noticed that I may have missed 1 or 2 cmake steps in the instructions below. If you would like to easily experience the game, please download the game's .exe file in the releases section of this repo if you are unable to get the build working from the following steps.
 
 In order to play the game, build by using cmake in the root directory of the project. If you don't
 have cmake, please install it at https://cmake.org/download/ OR if you use Visual Studio Code, it would be easier to just install the cmake package located on the extensions page. installing cmake via the downloads on the website may require some configuration beforehand.
