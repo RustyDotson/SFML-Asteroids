@@ -21,7 +21,7 @@ After you have cmake setup, while in the project directory, use the command `cma
 
 You shouldn't need to download any other dependencies, as cmake should install everything for SFML on its own.
 
-All sounds were designed in [LMMS](https://github.com/LMMS/lmms), all sprites were designed in [Aseprite](https://github.com/aseprite/aseprite), and the rendering and audio pipelines were built using [SFML](https://github.com/SFML/SFML).
+All sounds were designed in [LMMS](https://github.com/LMMS/lmms), all sprites were designed in [Aseprite](https://github.com/aseprite/aseprite), and the rendering, audio, and input pipelines were built using [SFML](https://github.com/SFML/SFML).
 
 ### *NOTICE* 
 On my macbook, the game is able to start very quickly, but my Windows machine requires around 10 seconds to load. This could just be an old Windows computer being an old Windows computer, or a problem somewhere in the code when initializing for windows systems. I'm currently looking into the issue. 
