@@ -2,6 +2,8 @@
 # SFML Asteroids
 ### Asteroids built in SFML Graphics and C++
 
+A huge thanks to [this tutorial](https://austinmorlan.com/posts/entity_component_system/) by Austin Morlan for helping me learn how to build the foundation of this project.
+
 Please check the release of the game [here](https://github.com/RustyDotson/SFML-Asteroids/releases/tag/release) to easily try it out! It is only 2mb in size.
 
 ![asteroids_demo](https://github.com/user-attachments/assets/b83a136f-665d-4873-8352-0f746fb606b2)
